@@ -10,18 +10,18 @@ import javax.persistence.*;
 public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nome;
     private String email;
     private String senha;
     @Type(type = "text")
     private String observacao;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,7 +42,8 @@ public class Administrador {
     }
 
     public String getSenha() {
-        return senha;
+
+        return senha.substring(0,2)+"*****";
     }
 
     public void setSenha(String senha) {
@@ -56,4 +57,5 @@ public class Administrador {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
 }

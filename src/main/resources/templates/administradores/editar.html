@@ -1,0 +1,39 @@
+<div th:replace="compartilhado/top" xmlns:th="http://thymeleaf.org"></div>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800"> Edição do Administrador</h1>
+    <p class="mb-4"> A que vamos fazer a Edição dos Adminstradores do Sistema </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4" style="padding: 30px">
+        <div class="card-header py-3">
+            <form method="POST" th:action="@{'/administradores/'+ ${administrador.id} + '/actualizar'}">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" th:value="${administrador?.nome}"  required id="nome" name="nome" placeholder="Digita o seu Nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control"  th:value="${administrador?.email}" required id="email" name="email" placeholder="Digita o seu Email">
+                </div>
+                <div class="form-group">
+                    <label for="observacao">Observação</label>
+                    <textarea  class="form-control"   id="observacao"  name="observacao" placeholder="Digite a sua Observação" th:inline="text">[[${administrador.observacao}]]</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control"  th:value="${administrador?.senha}" required id="senha"  name="senha" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+<!--<th:block th:replace="compartilhado/baixo"></th:block>-->
+<div th:replace="compartilhado/baixo"></div>
+
