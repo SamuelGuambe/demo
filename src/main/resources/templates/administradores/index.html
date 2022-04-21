@@ -1,65 +1,51 @@
+<div th:replace="compartilhado/top" xmlns:th="http://www.w3.org/1999/xhtml"></div>
 
-<div th:replace="compartilhado/top"></div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Administradores</h1>
+    <p class="mb-4">Tabela que lista todos Adminstradores do Sistema </p>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Administradores</h1>
-                    <p class="mb-4">Tabela que lista todos Adminstradores do Sistema </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="/administradores/novo" class="btn btn-primary" style="margin-right:400px">Novo</a>
+            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block">Lista dos Administradores</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>NOME</th>
+                        <th>EMAIL</th>
+                        <th>ENDEREÇO</th>
+                        <th>SENHA</th>
+                        <th>AÇÃO</th>
+                        <th>AÇÃO</th>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista dos Administradores</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>NOME</th>
-                                            <th>EMAIL</th>
-                                            <th>ENDEREÇO</th>
-                                            <th>AÇÃO</th>
-                                            <th>AÇÃO</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="administrador : ${administradores}">
+                        <td th:text="${administrador.id}"></td>
+                        <td th:text="${administrador.nome}"></td>
+                        <td th:text="${administrador.email}"></td>
+                        <td th:text="${administrador.observacao}"></td>
+                        <td th:text="${administrador.senha}"></td>
+                        <td><a th:href="@{'/administradores/'+ ${administrador.id}}" class="btn btn-warning">Alterar</td>
+                        <td><a href="#" th:onclick="'if(confirm(\'Comfirmar ?\')) { window.location.href =\'' + @{/administradores/{id}(id=${administrador.id})} + '/excluir\'}'" class="btn btn-danger">Excluir</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>NOME</th>
-                                            <th>EMAIL</th>
-                                            <th>ENDEREÇO</th>
-                                            <th>AÇÃO</th>
-                                            <th>AÇÃO</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Samuel Isaias Guambe</td>
-                                            <td>smuelguambe@gmail.com</td>
-                                            <td>Matola</td>
-                                            <td><a href="#" class="btn btn-warning">Alterar</td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Antonio</td>
-                                            <td>matia@gmail.com</td>
-                                            <td>Maputo</td>
-                                            <td><a href="#" class="btn btn-warning">Alterar</td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 <!--<th:block th:replace="compartilhado/baixo"></th:block>-->
 <div th:replace="compartilhado/baixo"></div>
 
