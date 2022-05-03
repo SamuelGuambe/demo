@@ -1,0 +1,43 @@
+<div th:replace="compartilhado/top" xmlns:th="http://www.w3.org/1999/xhtml"></div>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Categorias</h1>
+    <p class="mb-4">Tabela que lista todas as Categorias </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="/categoriaInvestigadores/novo" class="btn btn-primary" style="margin-right:400px">Nova</a>
+            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block">Lista das Categoria</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>CATEGORIA</th>
+                        <th>AÇÃO</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="categoriaInvestigador : ${categoriaInvestigadores}">
+                        <td th:text="${categoriaInvestigador.id}"></td>
+                        <td th:text="${categoriaInvestigador.categoria}"></td>
+                        <td><a th:href="@{'/categoriaInvestigadores/'+ ${categoriaInvestigador.id}}" class="btn btn-warning">Alterar</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+<!--<th:block th:replace="compartilhado/baixo"></th:block>-->
+<div th:replace="compartilhado/baixo"></div>
+
